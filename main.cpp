@@ -28,8 +28,14 @@ int main(int argc, char* argv[]) {
 		data.push_back(tmp);
 		counter++;
 	}
-	for (unsigned i=0;i<data[0].size();i++) {
-		cout<<data[0][i]<<" ";
-	}
-	cout<<endl;
+	IndexParameters para;
+	para.algorithm=KMEANS;
+	para.checks = 2048;
+	para.cb_index=0.6;
+	para.branching=10;
+	para.iterations=15;
+	para.centers_init=CENTERS_GONZALES;
+	para.target_precision=-1;
+	para.build_weight=0.01;
+	para.memory_weight=1;
 }
