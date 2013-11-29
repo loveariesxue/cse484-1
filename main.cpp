@@ -9,7 +9,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-	vector<vector<int> > data;
+	vector<float> data;
 	ifstream fileReader("./features/esp.feature");
 	string line;
 	int counter=0;
@@ -17,16 +17,20 @@ int main(int argc, char* argv[]) {
 		if (counter%10000 == 0) {
 			cout<<"still processing, currently "<<counter<<endl;
 		}
-		int a;
+		float a;
 		istringstream iss(line);
-		vector<int> tmp;
 		vector<string> tokens{istream_iterator<string>{iss},istream_iterator<string>{}};
 		for (unsigned i=0;i<tokens.size();i++) {
 			istringstream(tokens[i])>>a;
-			tmp.push_back(a);
+			data.push_back(a);
 		}
-		data.push_back(tmp);
 		counter++;
+	}
+	float *dataset=new float[data.size()];
+	//float *result=new float[150000*128];
+	float *result=0;
+	for (unsigned i=0;i<data.size();i++) {
+		dataset[i]=data[i];
 	}
 	IndexParameters para;
 	para.algorithm=KMEANS;
@@ -38,4 +42,5 @@ int main(int argc, char* argv[]) {
 	para.target_precision=-1;
 	para.build_weight=0.01;
 	para.memory_weight=1;
+	flann_compute_cluster_centers(dataset,data.size()/128,128,150000,result,&para,NULL);
 }
