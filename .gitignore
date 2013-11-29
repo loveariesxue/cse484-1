@@ -3,3 +3,6 @@ flann/*
 img/*
 sample query/*
 sift tool/*
+./search
+./esp.neighbors
+./esp.centers
