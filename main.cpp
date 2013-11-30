@@ -104,11 +104,13 @@ int main(int argc, char* argv[]) {
 		result<<"<DOCNO>"<<imgs[count]<<"</DOCNO>"<<endl;
 		result<<"<TEXT>"<<endl;
 		for (unsigned i=0;i<s;i++) {
-			cout<<
+			result<<data[i+data_count]<<" ";
 		}
+		result<<endl;
 		result<<"</TEXT>"<<endl;
 		result<<"</DOC>"<<endl;
 		count++;
+		data_count+=s;
 	}
 }
 dary read(string name) {
