@@ -21,3 +21,4 @@ def scan(arg, dirname, names):
                         im.save(newname)
 if __name__== "__main__": 
         walk("F:\\CSE484\\cse484project\\py\\",scan,0) #type in your JPG folder here
+ 
