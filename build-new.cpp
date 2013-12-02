@@ -40,7 +40,7 @@ int main(int argc,char* argv[]) {
 		float a;
 		istringstream iss(line);
 		vector<string> tokens{istream_iterator<string>{iss},istream_iterator<string>{}};
-		for (unsigned i=0;i<tokens.size();i++) {
+		for (unsigned i=4;i<tokens.size();i++) {
 			istringstream(tokens[i])>>a;
 			features_data.push_back(a);
 		}
